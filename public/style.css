@@ -1,8 +1,31 @@
-/* .logo {
-    background: url('Images/riverside.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-} */
+.header {
+    display: flex;
+    background-color: lightblue;
+}
+
+.restaurant {
+    padding: 10px;
+}
+
+.title {
+    display: inline;
+}
+
+.logo {
+    height: 40px;
+    display: inline;
+    margin-left: 10px;
+    vertical-align: middle;
+    border-radius: 20px;
+}
+
+ul, li {
+    flex: 1;
+    display: inline-block;
+    padding-inline-start: 0px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
 
 .cart {
     background: url('Images/cart.png');
