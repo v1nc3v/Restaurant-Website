@@ -1,6 +1,7 @@
 .header {
     display: flex;
     background-color: lightblue;
+    justify-content: space-between;
 }
 
 .restaurant {
@@ -19,12 +20,15 @@
     border-radius: 20px;
 }
 
-ul, li {
+ul {
     flex: 1;
-    display: inline-block;
     padding-inline-start: 0px;
     margin-block-start: 0em;
     margin-block-end: 0em;
+}
+
+ul > li {
+    display: inline-block;
 }
 
 .cart {
