@@ -32,7 +32,7 @@ ul {
 .container {
     /* max-width: 1100px; */
     /* margin: 0 auto; */
-    padding: 5px 15px;
+    padding: 5px 0 5px 15px;
 }
 
 img {
@@ -78,11 +78,11 @@ img {
 }
 
 .navbar ul li button {
-    padding: 15px 0 15px 20px;
+    padding: 15px 20px;
     display: block;
 }
 
-.cart-btn {
+.cart-btn, .cart-close {
     background-color: var(--header-color);
     border: none;
 }
@@ -93,14 +93,21 @@ img {
 }
 
 /* Cart */
-.cart-popup {
-    padding: 15px;
+.cart-container {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.cart {
+    padding: 20px 15px;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -25%;
     width: 25%;
     height: 100vh;
     background: var(--header-color);
+    transition: right 0.5s;
 }
 
 .cart-header {
@@ -116,6 +123,11 @@ img {
 
 .cart-num-items {
     margin-left: 15px;
+    font-size: 1.25em;
+}
+
+.cart.cart-open {
+    right: 0;
 }
 
 /*Badge above shopping cart*/

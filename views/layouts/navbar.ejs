@@ -12,7 +12,7 @@
         <li><a href="#">Careers</a></li>
         <li><a href="#">About Us</a></li>
         <li>
-          <button class="cart-btn">
+          <button id="cart-btn" class="cart-btn">
             <i class="fa-solid fa-cart-shopping fa-lg"></i>
           </button>
         </li>
@@ -22,13 +22,24 @@
 </header>
 <!--Cart side popup-->
 <body>
-  <div class="cart-popup">
-    <div class="cart-header">
-      <div class="cart-overview">
-        <i class="fa-solid fa-cart-shopping fa-lg"></i>
-        <h2 class="cart-num-items">2 Items</h2>
+  <div class="cart-container">
+    <div id="cart" class="cart">
+      <div class="cart-header">
+        <div class="cart-overview">
+          <i class="fa-solid fa-cart-shopping fa-lg"></i>
+          <h2 class="cart-num-items">2 Items</h2>
+        </div>
+        <button class="cart-close">
+          <i class="fa-solid fa-x fa-lg"></i>
+        </button>
       </div>
-      <i class="fa-solid fa-x fa-lg"></i>
     </div>
   </div>
 </body>
+<script>
+  let cart = document.getElementById("cart");
+  let open = document.getElementById("cart-btn");
+
+  // Open the cart on click
+  open.addEventListener("click", () => cart.classList.add(".cart-open"));
+</script>
