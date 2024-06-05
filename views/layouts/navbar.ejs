@@ -1,9 +1,9 @@
-<!--Navigation-->
+<!--Header and navigation-->
 <header class="header">
   <div class="container">
-    <div class="restaurant">
-      <h2 class="restaurant-name">Riverside Grill & Bar</h2>
-      <img class="restaurant-logo" src="Images/riverside.jpg" />
+    <div class="title">
+      <h2 class="name">Riverside Grill & Bar</h2>
+      <img class="logo" src="Images/riverside.jpg" />
     </div>
     <nav class="navbar">
       <ul>
@@ -13,8 +13,9 @@
         <li><a href="#">Careers</a></li>
         <li><a href="#">About Us</a></li>
         <li>
-          <button id="cart-btn" class="cart-btn">
+          <button id="cart-btn">
             <i class="fa-solid fa-cart-shopping fa-lg"></i>
+            <span class="badge">2</span>
           </button>
         </li>
       </ul>
@@ -28,6 +29,7 @@
   <div id="cart-outside"></div>
   <!--Cart-->
   <div id="cart">
+    <!--Cart header-->
     <div class="cart-header">
       <div class="cart-overview">
         <i class="fa-solid fa-cart-shopping fa-lg"></i>
@@ -37,8 +39,17 @@
         <i class="fa-solid fa-x fa-lg"></i>
       </button>
     </div>
+    <!--Cart contents-->
+    <div class="cart-content"></div>
+    <!--Cart footer-->
+    <div class="cart-footer">
+      <div class="cart-total"></div>
+      <!--Checkout button-->
+    </div>
   </div>
 </body>
+
+<!--Control cart popup-->
 <script>
   let cart = document.getElementById("cart");
   let outsideCart = document.getElementById("cart-outside");

@@ -1,7 +1,6 @@
 /*
 Restaurant Website
-Vincent Ton
-May 6, 2024
+Vincent Ton and Nithin Mahesh
 */
 
 const express = require('express');

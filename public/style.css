@@ -32,7 +32,7 @@ ul {
 }
 
 .container {
-    padding: 5px 0 5px 15px;
+    padding: 0 15px;
 }
 
 img {
@@ -43,10 +43,16 @@ button:hover {
     cursor: pointer;
 }
 
+.fa-lg {
+    line-height: 1;
+    /* Line height was .05em by default */
+    font-size: 1.35em;
+}
+
 /* Header and navigation */
 .header {
     background: var(--header-color);
-    position: sticky; /* Header sticks to top off user's screen */
+    position: sticky; /* Header sticks to the top of user's screen */
     top: 0;
 }
 
@@ -56,12 +62,12 @@ button:hover {
     align-items: center;
 }
 
-.restaurant {
+.title {
     display: flex;
     align-items: center;
 }
 
-.restaurant-logo {
+.logo {
     height: 40px;
     margin-left: 15px;
     border-radius: 20px;
@@ -88,14 +94,24 @@ button:hover {
     display: block;
 }
 
-.cart-btn, #cart-close {
+#cart-btn, #cart-close {
     background-color: var(--header-color);
     border: none;
 }
 
-.fa-lg {
-    line-height: 1; /* Line height was .05em by default */
-    font-size: 1.35em;
+#cart-btn {
+    padding-right: 0;
+}
+
+.badge {
+    border-radius: 9px;
+    font-size: 11px;
+    background: red;
+    color: white;
+    padding: 2px 4px;
+    vertical-align: top;
+    margin-left: -10px;
+    /* margin-bottom: -10px; */
 }
 
 /* Cart */
