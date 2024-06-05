@@ -1,3 +1,4 @@
+<!--Navigation-->
 <header class="header">
   <div class="container">
     <div class="restaurant">
@@ -20,15 +21,19 @@
     </nav>
   </div>
 </header>
+
 <!--Cart side popup-->
-<body>
-  <div id="cart" class="cart">
+<body id="body">
+  <!--Area outisde of the cart-->
+  <div id="cart-outside"></div>
+  <!--Cart-->
+  <div id="cart">
     <div class="cart-header">
       <div class="cart-overview">
         <i class="fa-solid fa-cart-shopping fa-lg"></i>
         <h2 class="cart-num-items">2 Items</h2>
       </div>
-      <button id="cart-close" class="cart-close">
+      <button id="cart-close">
         <i class="fa-solid fa-x fa-lg"></i>
       </button>
     </div>
@@ -36,12 +41,24 @@
 </body>
 <script>
   let cart = document.getElementById("cart");
+  let outsideCart = document.getElementById("cart-outside");
   let open = document.getElementById("cart-btn");
   let close = document.getElementById("cart-close");
+  let body = document.getElementById("body");
 
   // Open the cart on click
-  open.addEventListener("click", () => cart.classList.add("cart-open"));
+  open.addEventListener("click", () => {
+    cart.classList.add("cart-open");
+
+    // Prevent user from interacting with objects outside the cart
+    outsideCart.classList.add("unclickable");
+    body.classList.add("disable-scroll");
+  });
 
   // Close the cart on click
-  close.addEventListener("click", () => cart.classList.remove("cart-open"));
+  close.addEventListener("click", () => {
+    cart.classList.remove("cart-open");
+    outsideCart.classList.remove("unclickable");
+    body.classList.remove("disable-scroll");
+  });
 </script>

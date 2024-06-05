@@ -19,6 +19,7 @@ body {
     line-height: 1.5;
     background: var(--main-background-color);
     overflow-x: hidden;
+    height: auto;
 }
 
 a {
@@ -38,9 +39,15 @@ img {
     max-width: 100%;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 /* Header and navigation */
 .header {
     background: var(--header-color);
+    position: sticky; /* Header sticks to top off user's screen */
+    top: 0;
 }
 
 .header .container {
@@ -81,7 +88,7 @@ img {
     display: block;
 }
 
-.cart-btn, .cart-close {
+.cart-btn, #cart-close {
     background-color: var(--header-color);
     border: none;
 }
@@ -92,12 +99,12 @@ img {
 }
 
 /* Cart */
-.cart {
+#cart {
+    position: fixed;
+    height: 100%;
+    width: 25%;
     top: 0;
     right: -25%;
-    width: 25%;
-    height: 100%;
-    position: absolute;
     background: var(--header-color);
     padding: 20px 15px;
     transition: right 0.7s, box-shadow 0.7s;
@@ -119,9 +126,26 @@ img {
     font-size: 1.25em;
 }
 
-.cart.cart-open {
+#cart.cart-open {
     right: 0;
-    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.65);
+    box-shadow: 0 0 0 80vw rgba(0, 0, 0, 0.65);
+}
+
+#cart-outside {
+    position: fixed;
+    height: 100%;
+    width: 75%;
+    top: 0;
+    left: -75%;
+}
+
+#cart-outside.unclickable {
+    left: 0;
+}
+
+.disable-scroll {
+    height: 100%;
+    overflow: hidden;
 }
 
 /*Badge above shopping cart*/
