@@ -131,6 +131,7 @@ button:hover {
     box-shadow: 0 0 0 80vw rgba(0, 0, 0, 0.65);
 }
 
+/* Create an empty container to prevent user from interacting outisde of the cart */
 #cart-outside {
     position: fixed;
     height: 100%;
