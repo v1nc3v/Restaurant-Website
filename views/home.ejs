@@ -10,7 +10,20 @@
     <!--Container for main section-->
     <div class="main">
       <h1 class="main-title">RIVERSIDE GRILL & BAR</h1>
-      <button class="main-btn" type="button">ORDER NOW</button>
+      <h2 class="main-caption">#1 Restaurant in Arnprior, Ontario</h2>
+      <!--Button takes user to menu-->
+      <button id="main-btn" type="button"><a href="#">ORDER NOW</a></button>
+    </div>
+
+    <!--Testing-->
+    <h1 style="font-size: 70px; color: red;">TEST</h1>
+    <button class="add-btn" style="font-size: 70px" type="button">ADD</button>
+
+    <div class="item">
+      <h2 style="font-size: 70px" class="item-title">Pizza</h2>
+      <h2 style="font-size: 70px" class="item-price">$9.99</h2>
+      <img class="item-image" src="Images/pizza.jpg" />
+      <input style="height: 100px; width: 500px" class="item-description"></input>
     </div>
 
     <!--Container for reservations-->
@@ -57,18 +70,92 @@
         </div>
       </div>
     </div>
-    <h1>test</h1>
-    <h1>test</h1>
-    <h1>test</h1>
-    <h1>test</h1>
-    <h1>test</h1>
-    <h1>test</h1>
-    <h1>test</h1>
-    <h1>test</h1>
-    <h1>test</h1>
-    <h1>test</h1>
-    <h1>test</h1>
-    <h1>test</h1>
     <%- include('layouts/footer'); -%>
   </body>
+  <!--Should be added to menu page-->
+  <script>
+    let addToCartBtns = document.getElementsByClassName("add-btn");
+
+    for (i = 0; i < addToCartBtns.length; i++) {
+      let button = addToCartBtns[0];
+      button.addEventListener("click", addBtnClicked);
+    }
+
+    // Retrieve item details when added to cart
+    function addBtnClicked(event) {
+      let button = event.target;
+      let item = button.parentElement;
+      let title = item.getElementsByClassName("item-title")[0].innerText;
+      let description = item.getElementsByClassName("item-description")[0].value;
+      let price = item.getElementsByClassName("item-price")[0].innerText;
+      let image = item.getElementsByClassName("item-image")[0].src;
+      addItem(title, description, price, image);
+    }
+
+    // Add item to cart
+    function addItem(title, description, price, image) {
+      let cartItem = document.createElement("div");
+      let cartItems = document.getElementsByClassName("cart-content")[0];
+      let cartItemNames = cartItems.getElementsByClassName("cart-item-title");
+      // for (i = 0; i < cartItemNames.length; i++) {
+      //   if (cartItemNames[i].innerText == title) {
+      //     // Temporary
+      //     alert("This item has already been added to your cart");
+      //     return;
+      //   }
+      // }
+      
+      // HTML format for all cart items
+      let cartItemContents = `
+        <div class="cart-item">
+          <img class="cart-item-image" src="${image}">
+          <div class="cart-item-details">
+            <div class="cart-item-top">
+              <h3 class="cart-item-title">${title}</h3>
+              <h3>x1</h3>
+            </div>
+            <div class="cart-item-middle">
+              <p class="cart-item-description">${description}</p> 
+            </div>
+            <div class="cart-item-bottom">
+              <h3 class="cart-item-price">${price}</h3>
+              <button class="cart-item-remove">
+                <i class="fa-solid fa-trash-can fa-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      cartItem.innerHTML = cartItemContents;
+      cartItems.append(cartItem);
+      updateCartTotal();
+
+      // Ensure item is removed when remove button is clicked
+      cartItem.getElementsByClassName("cart-item-remove")[0].addEventListener("click", () => {
+        removeBtn = event.target;
+        removeBtn.parentElement.parentElement.parentElement.parentElement.remove();
+        updateCartTotal();
+      });    
+    }
+
+    // Update cart total
+    function updateCartTotal() {
+      let cartItemContainer = document.getElementsByClassName("cart-content")[0];
+      let cartItems = cartItemContainer.getElementsByClassName("cart-item");
+      let total = 0;
+
+      // Loop through each element in the cart to update the total cost
+      for (i = 0; i < cartItems.length; i++) {
+        let cartItem = cartItems[i];
+        // Takes the price of the item, removes the dollar sign and converts it to a float
+        let price = parseFloat(cartItem.getElementsByClassName("cart-item-price")[0].innerText.replace("$", ""));
+        total = total + price;
+      }
+
+      // Update total
+      document.getElementsByClassName("cart-total")[0].innerText = "$" + total;
+    }
+
+    // NOTE: Changing quantity still needs to be implemented alongside the menu
+  </script>
 </html>

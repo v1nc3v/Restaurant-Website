@@ -15,7 +15,7 @@
         <li>
           <button id="cart-btn">
             <i class="fa-solid fa-cart-shopping fa-lg"></i>
-            <span class="cart-icon">2</span>
+            <span class="cart-icon">1</span>
           </button>
         </li>
       </ul>
@@ -33,7 +33,7 @@
     <div class="cart-header">
       <div class="cart-overview">
         <i class="fa-solid fa-cart-shopping fa-lg"></i>
-        <h2 class="cart-num-items">2 Items</h2>
+        <h2 class="cart-num-items">1 Items</h2>
       </div>
       <button id="cart-close">
         <i class="fa-solid fa-x fa-lg"></i>
@@ -43,8 +43,8 @@
     <div class="cart-content"></div>
     <!--Cart footer-->
     <div class="cart-footer">
-      <div class="cart-total"></div>
-      <!--Checkout button-->
+      <h2 class="cart-total">$0</h2>
+      <button id="cart-checkout" type="button"><a href="#">CHECKOUT</a></button>
     </div>
   </div>
 </body>
@@ -62,14 +62,21 @@
     cart.classList.add("cart-open");
 
     // Prevent user from interacting with objects outside the cart
-    outsideCart.classList.add("unclickable");
     body.classList.add("disable-scroll");
+    outsideCart.classList.add("show");
   });
 
-  // Close the cart on click
+  // Close the cart on button click
   close.addEventListener("click", () => {
     cart.classList.remove("cart-open");
-    outsideCart.classList.remove("unclickable");
     body.classList.remove("disable-scroll");
+    outsideCart.classList.remove("show");
+  });
+
+  // Close cart when user clicks outside
+  outsideCart.addEventListener("click", () => {
+    cart.classList.remove("cart-open");
+    body.classList.remove("disable-scroll");
+    outsideCart.classList.remove("show");
   });
 </script>
