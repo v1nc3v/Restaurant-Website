@@ -11,6 +11,7 @@
     --main-background-color: #fff;
     --header-color: #E3E6F3;
     --header-text-color: #333;
+    --cart-background-color: #E3E6F3;
 }
 
 body {
@@ -59,7 +60,7 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1400px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -96,7 +97,7 @@ button:hover {
 }
 
 #cart-btn, #cart-close {
-    background-color: var(--header-color);
+    background-color: var(--cart-background-color);
     border: none;
 }
 
@@ -126,7 +127,7 @@ button:hover {
     top: 0;
     right: -25%;
     border-radius: 10px;
-    background: var(--header-color);
+    background: var(--cart-background-color);
     transition: right 0.7s;
 }
 
@@ -195,27 +196,36 @@ button:hover {
 
 .cart-item-image {
     width: 40%;
+    object-fit: contain;
 }
 
 .cart-item-details {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 55%;
+    overflow-x: hidden;
 }
 
 .cart-item-top, .cart-item-middle, .cart-item-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .cart-item-title {
     font-size: 1.25em;
 }
 
+.cart-item-middle {
+    padding: 8px 0;
+}
+
 .cart-item-remove {
-    background-color: var(--header-color);
+    background-color: var(--main-background-color);
     border: none;
 }
 
